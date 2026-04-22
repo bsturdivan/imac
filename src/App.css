@@ -1,0 +1,311 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  padding: 1% 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: var(--blue);
+  font-family: var(--sans);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.computer {
+  aspect-ratio: 1.062;
+  clip-path: shape(
+    from 50.04% 0%,
+    curve to 88.92% 1.61% with 51.52% 0%/75.41% 0.05%,
+    curve to 97.49% 9.15% with 95.65% 2.31%/97% 4.77%,
+    curve to 98.91% 92.5% with 100.07% 32.1%/100.86% 68.58%,
+    curve to 88.62% 100% with 98.37% 99.09%/95.36% 100%,
+    hline to 11.38%,
+    curve to 1.09% 92.5% with 4.64% 100%/1.63% 99.09%,
+    curve to 2.51% 9.15% with -0.86% 68.58%/-0.07% 32.1%,
+    curve to 11.08% 1.61% with 3% 4.77%/4.35% 2.31%,
+    curve to 49.96% 0% with 24.59% 0.05%/48.48% 0%,
+    hline to 50.04%,
+    close
+  );
+  background: var(--blue);
+  height: 100%;
+  position: relative;
+  box-shadow: inset -3px -9px 20px 3px rgba(255, 255, 255, 0.4);
+}
+
+.computer::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 140%;
+  z-index: 5;
+  top: 0;
+  backdrop-filter: blur(10px) brightness(0.8) opacity(0.4);
+  filter: blur(8px);
+  background:
+    radial-gradient(ellipse at 66% 10%, var(--light), rgba(255, 255, 255, 0) 58%),
+    radial-gradient(ellipse at 24% 64%, var(--light2), rgba(255, 255, 255, 0) 44%),
+    radial-gradient(ellipse at 87% 75%, var(--black-a), rgba(255, 255, 255, 0) 34%);
+  border: 3px solid var(--black);
+}
+
+.screen-frame {
+  height: 81%;
+  margin: 0 auto;
+  clip-path: ellipse(49.2% 227% at 50% 74%);
+  filter: blur(1px);
+  box-shadow:
+    11px 0px 6px 3px rgba(0, 0, 0, 0.2),
+    0 0 4px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px) brightness(0.8) opacity(0.1);
+  background-color: var(--white);
+  position: relative;
+  z-index: 1;
+  border-radius: 60px;
+  corner-shape: squircle;
+  top: 2px;
+  right: 1px;
+}
+
+.screen-frame::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: repeating-linear-gradient(90deg, var(--grey) 0 8px, var(--white) 8px 13px);
+  box-shadow:
+    inset -20px 0px 20px -2px rgba(0, 149, 182, 0.21),
+    inset 15px 1px 15px -5px rgba(0, 149, 182, 0.2);
+  filter: blur(1px);
+}
+
+.utility-parent {
+  height: 19%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.utility-container {
+  background: var(--grey);
+  height: 100%;
+  width: 100%;
+}
+
+.utility-tab {
+  height: 18px;
+  width: 50px;
+  background-color: var(--blue);
+  position: absolute;
+  top: -2px;
+  right: 25%;
+  border-radius: 2px;
+}
+
+.utility-tab:first-child {
+  left: 25%;
+}
+
+.utilities {
+  height: 70%;
+  width: 54%;
+  top: 6px;
+  left: 23%;
+  position: absolute;
+  border-bottom: 1px solid #fff;
+  border-top: 10px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  corner-shape: bevel;
+  background-color: rgba(from var(--white) r g b / 0.4);
+  backdrop-filter: opacity(0.2) brightness(200%) blur(5px);
+}
+
+.cdr {
+  width: 66%;
+  height: 35px;
+  background-color: #fff;
+  border-radius: 20px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.headphone-back {
+  position: absolute;
+  width: 70px;
+  height: 30px;
+  left: 5px;
+  bottom: 10px;
+  border-radius: 25px;
+  background-color: var(--black-a);
+}
+
+.onoff {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid white;
+  border-style: outset;
+}
+
+.speakers {
+  width: 88%;
+  height: 65%;
+  position: absolute;
+  top: 17%;
+  left: 6%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.speaker {
+  height: 100%;
+  aspect-ratio: 1.2;
+  background-color: var(--black);
+  border-radius: 60px;
+  display: flex;
+  filter: blur(2px);
+}
+
+.utility-container-top .speaker {
+  transform: scale(1.15);
+  background-color: var(--blue);
+  filter: brightness(130%) opacity(0.5) blur(3px);
+  /* background-image: radial-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent); */
+  box-shadow: inset -4px 3px 12px 1px rgba(3, 10, 3, 0.6);
+  border: 1px solid var(--black-a);
+  outline: 1px solid var(--light);
+}
+
+.utility-container-top .speaker:first-child {
+  box-shadow: inset 2px -1px 20px 1px rgba(3, 10, 3, 0.3);
+}
+
+.utility-container-top .speaker::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  background-position:
+    0 0,
+    0 0,
+    100% 0,
+    0 100%;
+  background-size:
+    3px 100%,
+    100% 3px,
+    3px 100%,
+    100% 3px;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(
+      0deg,
+      transparent 15%,
+      var(--clr-border) 15%,
+      var(--clr-border) 85%,
+      transparent 85%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 15%,
+      var(--clr-border) 15%,
+      var(--clr-border) 85%,
+      transparent 85%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 15%,
+      var(--clr-border) 15%,
+      var(--clr-border) 85%,
+      transparent 85%
+    ),
+    linear-gradient(
+      270deg,
+      transparent 15%,
+      var(--clr-border) 15%,
+      var(--clr-border) 85%,
+      transparent 85%
+    );
+}
+
+.utility-container-top .speaker::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-image:
+    radial-gradient(ellipse at 17% 60%, var(--light2), rgba(255, 255, 255, 0) 45%),
+    repeating-linear-gradient(180deg, var(--black-a) 5%, transparent 10%);
+  background-color: rgba(from var(--blue) r g b / 0.2);
+  outline: 4px groove var(--black);
+  border-radius: 60px;
+}
+
+.utility-container-top .speaker:first-child::after {
+  background:
+    radial-gradient(ellipse at 25% 35%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 33%),
+    repeating-linear-gradient(180deg, var(--blue-a) 5%, transparent 10%);
+}
+
+.cone {
+  height: 50%;
+  aspect-ratio: 1;
+  margin: auto;
+  background: radial-gradient(ellipse at center, #bdc3c7 0%, #9c9e9f 50%, #bdc3c7 100%);
+  border-radius: 50%;
+  box-shadow: 2px -2px 12px 3px var(--black-a);
+}
+
+.utility-container-top {
+  /* backdrop-filter: blur(5px) brightness(140%) opacity(0.5); */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+}
+
+.dots {
+  mask-image: radial-gradient(circle 4px at center, transparent 50%, var(--black) 70%);
+  mask-size: 9px 9px;
+  mask-position: center;
+  mask-repeat: round;
+}
+
+.screen {
+  aspect-ratio: 4 / 3;
+  width: 78%;
+  background-color: var(--black);
+  border-radius: 2rem;
+  margin: auto;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  corner-shape: squircle;
+  z-index: 6;
+}
