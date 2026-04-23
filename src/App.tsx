@@ -39,6 +39,11 @@ function App() {
               <div className='speaker dots'></div>
               <div className='speaker dots'></div>
             </div>
+
+            <div className='speaker-tab-container'>
+              <div className='speaker-tabs' />
+              <div className='speaker-tabs' />
+            </div>
           </div>
         </div>
       </div>

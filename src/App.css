@@ -172,6 +172,7 @@ h1 {
   left: 6%;
   display: flex;
   justify-content: space-between;
+  z-index: 5;
 }
 
 .speaker {
@@ -180,72 +181,60 @@ h1 {
   background-color: var(--black);
   border-radius: 60px;
   display: flex;
-  filter: blur(2px);
+  filter: blur(1px);
 }
 
 .utility-container-top .speaker {
   transform: scale(1.15);
   background-color: var(--blue);
-  filter: brightness(130%) opacity(0.5) blur(3px);
-  /* background-image: radial-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent); */
+  filter: brightness(130%) opacity(0.5) blur(4px);
   box-shadow: inset -4px 3px 12px 1px rgba(3, 10, 3, 0.6);
   border: 1px solid var(--black-a);
   outline: 1px solid var(--light);
 }
 
-.utility-container-top .speaker:first-child {
-  box-shadow: inset 2px -1px 20px 1px rgba(3, 10, 3, 0.3);
+.speaker-tab-container {
+  width: 90.8%;
+  height: 78%;
+  position: absolute;
+  top: 11%;
+  left: 4.6%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 4;
 }
 
-.utility-container-top .speaker::before {
-  content: '';
-  display: block;
-  width: 100%;
+.speaker-tabs {
   height: 100%;
-  position: absolute;
-  z-index: 10;
-  top: 0px;
-  left: 0px;
-  background-position:
+  aspect-ratio: 1.2;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 12px dashed var(--blue);
+  filter: brightness(80%);
+  mix-blend-mode: screen;
+  box-sizing: border-box;
+  transform: scale(1.05);
+  display: none;
+}
+
+.dots {
+  mask-image:
+    radial-gradient(circle 4px at center, transparent 50%, var(--black) 58%),
+    radial-gradient(circle 4px at center, transparent 50%, var(--black) 56%);
+  mask-size: 11px 14px;
+  mask-position:
     0 0,
-    0 0,
-    100% 0,
-    0 100%;
-  background-size:
-    3px 100%,
-    100% 3px,
-    3px 100%,
-    100% 3px;
-  background-repeat: no-repeat;
-  background-image:
-    linear-gradient(
-      0deg,
-      transparent 15%,
-      var(--clr-border) 15%,
-      var(--clr-border) 85%,
-      transparent 85%
-    ),
-    linear-gradient(
-      90deg,
-      transparent 15%,
-      var(--clr-border) 15%,
-      var(--clr-border) 85%,
-      transparent 85%
-    ),
-    linear-gradient(
-      180deg,
-      transparent 15%,
-      var(--clr-border) 15%,
-      var(--clr-border) 85%,
-      transparent 85%
-    ),
-    linear-gradient(
-      270deg,
-      transparent 15%,
-      var(--clr-border) 15%,
-      var(--clr-border) 85%,
-      transparent 85%
-    );
+    5px 7px;
+  mask-repeat: repeat;
+  mask-composite: intersect;
+  mask-origin: content-box;
+}
+
+.utility-container-top .speaker:first-child {
+  box-shadow: inset 2px -1px 20px 1px rgba(3, 10, 3, 0.3);
 }
 
 .utility-container-top .speaker::after {
@@ -257,8 +246,8 @@ h1 {
   top: 0px;
   left: 0px;
   background-image:
-    radial-gradient(ellipse at 17% 60%, var(--light2), rgba(255, 255, 255, 0) 45%),
-    repeating-linear-gradient(180deg, var(--black-a) 5%, transparent 10%);
+    radial-gradient(ellipse at 33% 60%, var(--light2), rgba(255, 255, 255, 0) 45%),
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.7) 5%, transparent 10%);
   background-color: rgba(from var(--blue) r g b / 0.2);
   outline: 4px groove var(--black);
   border-radius: 60px;
@@ -266,17 +255,18 @@ h1 {
 
 .utility-container-top .speaker:first-child::after {
   background:
-    radial-gradient(ellipse at 25% 35%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 33%),
-    repeating-linear-gradient(180deg, var(--blue-a) 5%, transparent 10%);
+    radial-gradient(ellipse at 69% 65%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 33%),
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.3) 5%, transparent 10%);
 }
 
 .cone {
   height: 50%;
   aspect-ratio: 1;
   margin: auto;
-  background: radial-gradient(ellipse at center, #bdc3c7 0%, #9c9e9f 50%, #bdc3c7 100%);
+  background: conic-gradient(from 60deg at 57% 43%, #bdc3c7 0%, #ffffff 35%, #9c9e9f 84%);
   border-radius: 50%;
   box-shadow: 2px -2px 12px 3px var(--black-a);
+  /* filter: blur(1px); */
 }
 
 .utility-container-top {
@@ -287,13 +277,6 @@ h1 {
   width: 100%;
   height: 100%;
   z-index: 6;
-}
-
-.dots {
-  mask-image: radial-gradient(circle 4px at center, transparent 50%, var(--black) 70%);
-  mask-size: 9px 9px;
-  mask-position: center;
-  mask-repeat: round;
 }
 
 .screen {
