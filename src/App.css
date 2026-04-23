@@ -187,7 +187,7 @@ h1 {
 .utility-container-top .speaker {
   transform: scale(1.15);
   background-color: var(--blue);
-  filter: brightness(130%) opacity(0.5) blur(4px);
+  filter: brightness(130%) opacity(0.7) blur(4px);
   box-shadow: inset -4px 3px 12px 1px rgba(3, 10, 3, 0.6);
   border: 1px solid var(--black-a);
   outline: 1px solid var(--light);
@@ -246,7 +246,7 @@ h1 {
   top: 0px;
   left: 0px;
   background-image:
-    radial-gradient(ellipse at 33% 60%, var(--light2), rgba(255, 255, 255, 0) 45%),
+    radial-gradient(ellipse at 33% 65%, rgba(250, 246, 235, 0.4), rgba(255, 255, 255, 0) 45%),
     repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.7) 5%, transparent 10%);
   background-color: rgba(from var(--blue) r g b / 0.2);
   outline: 4px groove var(--black);
@@ -255,7 +255,7 @@ h1 {
 
 .utility-container-top .speaker:first-child::after {
   background:
-    radial-gradient(ellipse at 69% 65%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 33%),
+    radial-gradient(ellipse at 39% 65%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 33%),
     repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.3) 5%, transparent 10%);
 }
 
