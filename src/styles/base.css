@@ -6,8 +6,9 @@
   --black: rgb(3, 10, 3);
   --black-a: rgba(3, 10, 3, 0.6);
   --grey: #d6d8d5;
-  --blue: #0095b6;
+  --blue: rgb(0, 149, 182);
   --blue-a: rgba(0, 149, 182, 0.2);
+  --blue-a2: rgba(0, 149, 182, 0.7);
 
   --sans: Primitiv, sans-serif;
   --mono: Primitiv, Consolas, monospace;

@@ -35,14 +35,46 @@ function App() {
               <button className='onoff' type='button'></button>
             </div> */}
 
-            <div className='speakers'>
+            <div className='speakers speakers--bottom'>
               <div className='speaker dots'></div>
               <div className='speaker dots'></div>
             </div>
 
-            <div className='speaker-tab-container'>
-              <div className='speaker-tabs' />
-              <div className='speaker-tabs' />
+            <div className='speakers'>
+              <div className='speaker dots' />
+              <div className='speaker dots' />
+            </div>
+
+            <div className='speakers speakers--border'>
+              <div className='speaker'>
+                <div className='speaker-tabs'>
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+              <div className='speaker'>
+                <div className='speaker-tabs'>
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            </div>
+
+            <div className='speakers speakers--top'>
+              <div className='speaker'>
+                <div className='speaker-cutout' />
+              </div>
+              <div className='speaker'>
+                <div className='speaker-cutout' />
+              </div>
             </div>
           </div>
         </div>
