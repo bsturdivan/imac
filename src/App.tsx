@@ -29,11 +29,22 @@ function App() {
           </div>
 
           <div className='utility-container-top'>
-            {/* <div className='utilities'>
-              <div className='cdr'></div>
+            <div className='utilities'>
+              <div className='cdr'>
+                <div className='cdr-tabs'>
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
               <div className='headphone-back'></div>
               <button className='onoff' type='button'></button>
-            </div> */}
+            </div>
 
             <div className='speakers speakers--bottom'>
               <div className='speaker dots'></div>

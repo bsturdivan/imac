@@ -5,7 +5,8 @@
   --light2: rgba(250, 246, 235, 0.6);
   --black: rgb(3, 10, 3);
   --black-a: rgba(3, 10, 3, 0.6);
-  --grey: #d6d8d5;
+  --grey: rgba(214, 216, 213);
+  --grey-a: rgba(214, 216, 213, 0.5);
   --blue: rgb(0, 149, 182);
   --blue-a: rgba(0, 149, 182, 0.2);
   --blue-a2: rgba(0, 149, 182, 0.7);
