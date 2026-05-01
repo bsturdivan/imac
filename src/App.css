@@ -53,7 +53,7 @@ h1 {
   /* background:
     radial-gradient(ellipse at 66% 10%, var(--light), rgba(255, 255, 255, 0) 58%),
     radial-gradient(ellipse at 24% 64%, var(--light2), rgba(255, 255, 255, 0) 44%),
-    radial-gradient(ellipse at 87% 75%, var(--black-a), rgba(255, 255, 255, 0) 34%); */
+    radial-gradient(ellipse at 87% 75%, var(--black-a2), rgba(255, 255, 255, 0) 34%); */
   border: 3px solid var(--black);
 }
 
@@ -124,6 +124,9 @@ h1 {
   top: 6px;
   left: 23%;
   position: absolute;
+}
+
+.utility-container .utilities {
   border-bottom: 1px solid #fff;
   border-top: 10px solid rgba(255, 255, 255, 0.1);
   border-radius: 5px;
@@ -138,19 +141,19 @@ h1 {
   background-color: var(--black-a);
   border-radius: 20px;
   position: absolute;
-  top: 12px;
+  top: 11px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.headphone-back {
+.utility-container .headphone-back {
   position: absolute;
   width: 70px;
   height: 30px;
   left: 5px;
   bottom: 10px;
   border-radius: 25px;
-  background-color: var(--black-a);
+  background-color: var(--grey);
 }
 
 .onoff {
@@ -409,13 +412,32 @@ h1 {
   backdrop-filter: brightness(120%) blur(6px);
   box-sizing: border-box;
   top: 10px;
+  background-image: linear-gradient(
+    0deg,
+    transparent 10%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 90%
+  );
   box-shadow:
-    0 6px 11px 2px rgba(255, 255, 255, 0.5) inset,
-    0 -3px 11px 2px rgba(255, 255, 255, 0.6) inset,
+    0 1px 8px 2px rgba(255, 255, 255, 0.7) inset,
     7px 3px 10px 3px rgba(3, 3, 3, 0.2) inset,
     -7px -3px 10px 1px rgba(3, 3, 3, 0.2) inset,
     1px 1px 1px 1px var(--light2),
     0px -1px 1px 0px var(--blue-a2);
+}
+
+.utility-container-top .cdr::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: var(--blue-a2);
+  filter: blur(6px) brightness(150%) opacity(0.4) saturate(1.2);
+  z-index: 5;
 }
 
 .utility-container-top .cdr::after {
@@ -430,9 +452,10 @@ h1 {
   width: 92%;
   border-radius: 20px;
   background-color: var(--grey-a);
-  backdrop-filter: blur(4px);
+  filter: blur(0.6px);
   border: 4px inset var(--blue-a2);
   outline: 1px inset var(--blue-a);
+  z-index: 6;
 }
 
 .utility-container-top .cdr-tabs {
@@ -493,6 +516,22 @@ h1 {
 .cdr-tabs span:nth-of-type(8) {
   bottom: 0;
   right: 0;
+}
+
+.headphone-container {
+  position: absolute;
+  width: 66px;
+  height: 24px;
+  left: 9px;
+  bottom: 7px;
+  border-radius: 25px;
+  /* background: radial-gradient(ellipse at center, var(--grey-a) 60%, var(--black-a2) 100%); */
+  backdrop-filter: brightness(110%) opacity(0.7);
+  box-shadow:
+    inset 1px 2px 5px 1px rgba(255, 255, 255, 0.4),
+    inset 1px 1px 4px 1px rgba(0, 0, 0, 0.2),
+    inset 0 0 10px 8px var(--grey-a);
+  outline: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .screen {

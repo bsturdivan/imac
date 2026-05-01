@@ -15,7 +15,6 @@ function App() {
             <div className='utilities'>
               <div className='cdr'></div>
               <div className='headphone-back'></div>
-              <button className='onoff' type='button'></button>
             </div>
 
             <div className='speakers'>
@@ -42,7 +41,10 @@ function App() {
                   <span />
                 </div>
               </div>
-              <div className='headphone-back'></div>
+              <div className='headphone-container'>
+                <div className='headphone-jack'></div>
+                <div className='headphone-jack'></div>
+              </div>
               <button className='onoff' type='button'></button>
             </div>
 
