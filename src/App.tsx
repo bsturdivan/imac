@@ -1,11 +1,15 @@
 import './App.css'
+import Headphones from './icons/Headphones'
+import Power from './icons/Power'
 
 function App() {
   return (
     <main>
       <div className='computer'>
-        <div className='screen-frame'></div>
-        <div className='screen'></div>
+        <div className='web-cam' />
+        <div className='screen-frame' />
+        <div className='screen-border' />
+        <div className='screen' />
 
         <div className='utility-parent'>
           <div className='utility-container'>
@@ -44,8 +48,11 @@ function App() {
               <div className='headphone-container'>
                 <div className='headphone-jack'></div>
                 <div className='headphone-jack'></div>
+                <Headphones className='headphone-icon' />
               </div>
-              <button className='onoff' type='button'></button>
+              <button className='onoff' type='button'>
+                <Power className='power' />
+              </button>
             </div>
 
             <div className='speakers speakers--bottom'>
@@ -91,6 +98,12 @@ function App() {
             </div>
           </div>
         </div>
+
+        <div className='flare1 flare' />
+        <div className='flare2 flare' />
+        <div className='flare3 flare' />
+        <div className='flare4 flare' />
+        <div className='flare5 flare' />
       </div>
     </main>
   )

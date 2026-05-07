@@ -17,6 +17,67 @@ h1 {
   padding: 0;
 }
 
+.flare {
+  position: absolute;
+  z-index: 10;
+}
+
+.flare1 {
+  height: 8px;
+  width: 40%;
+  top: 18px;
+  left: 27%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.5) 30%,
+    transparent 75%
+  );
+  filter: opacity(63%) brightness(140%);
+}
+
+.flare2 {
+  height: 6px;
+  width: 10%;
+  top: 34px;
+  left: 40%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.6) 30%,
+    transparent 75%
+  );
+  filter: opacity(55%) brightness(110%);
+}
+
+.flare3 {
+  height: 4px;
+  width: 6%;
+  top: 46px;
+  left: 12%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.6) 30%,
+    transparent 75%
+  );
+  filter: opacity(55%);
+}
+
+.flare4 {
+  height: 7px;
+  width: 6%;
+  top: 26px;
+  right: 9%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.8) 30%,
+    transparent 75%
+  );
+  filter: opacity(65%);
+}
+
 .computer {
   aspect-ratio: 1.062;
   clip-path: shape(
@@ -33,7 +94,13 @@ h1 {
     hline to 50.04%,
     close
   );
-  background: var(--blue);
+  background-color: var(--blue);
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 0, 0.9) 20%,
+    transparent 100%
+  );
   height: 100%;
   min-height: 740px;
   position: relative;
@@ -50,12 +117,32 @@ h1 {
   top: 0;
   backdrop-filter: blur(10px) brightness(0.8) opacity(0.4);
   filter: blur(8px);
-  /* background:
-    radial-gradient(ellipse at 66% 10%, var(--light), rgba(255, 255, 255, 0) 58%),
-    radial-gradient(ellipse at 24% 64%, var(--light2), rgba(255, 255, 255, 0) 44%),
-    radial-gradient(ellipse at 87% 75%, var(--black-a2), rgba(255, 255, 255, 0) 34%); */
+  background:
+    radial-gradient(ellipse at 66% 10%, rgba(250, 246, 235, 0.2), rgba(255, 255, 255, 0) 58%),
+    radial-gradient(ellipse at 24% 64%, rgba(250, 246, 235, 0.2), rgba(255, 255, 255, 0) 44%),
+    radial-gradient(ellipse at 87% 75%, rgba(3, 10, 3, 0.2), rgba(255, 255, 255, 0) 34%);
   border: 3px solid var(--black);
+  box-shadow: inset 0 5px 10px 5px var(--black-a2);
 }
+
+.computer::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 94%;
+  z-index: 6;
+  top: 5%;
+  opacity: 0.5;
+  filter: blur(4px);
+  background: linear-gradient(
+    90deg,
+    transparent 86%,
+    rgba(255, 255, 255, 0.3) 90%,
+    rgba(0, 0, 0, 0.2) 94%
+  );
+}
+/* rgba(255, 255, 255, 0.4) */
 
 .screen-frame {
   height: 81%;
@@ -73,6 +160,20 @@ h1 {
   corner-shape: squircle;
   top: 2px;
   right: 1px;
+}
+
+.web-cam {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 12px;
+  width: 4px;
+  background-color: var(--black-a);
+  border-radius: 6px;
+  z-index: 9;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  outline: 1px outset rgba(255, 255, 255, 0.8);
 }
 
 .screen-frame::before {
@@ -106,33 +207,35 @@ h1 {
 
 .utility-tab {
   height: 18px;
-  width: 50px;
+  width: 36px;
   background-color: var(--blue);
   position: absolute;
   top: -2px;
-  right: 25%;
+  right: 24%;
   border-radius: 2px;
+  filter: brightness(80%) blur(1px);
+  opacity: 0.7;
 }
 
 .utility-tab:first-child {
-  left: 25%;
+  left: 24%;
 }
 
 .utilities {
-  height: 70%;
-  width: 54%;
+  height: 54%;
+  width: 57%;
   top: 6px;
-  left: 23%;
+  left: 21.5%;
   position: absolute;
 }
 
 .utility-container .utilities {
-  border-bottom: 1px solid #fff;
+  border-bottom: 2px solid #fff;
   border-top: 10px solid rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   corner-shape: bevel;
-  background-color: rgba(from var(--white) r g b / 0.3);
-  backdrop-filter: opacity(0.2) brightness(130%) blur(5px);
+  background-color: transparent;
+  backdrop-filter: opacity(0.1) brightness(130%) blur(5px);
 }
 
 .cdr {
@@ -149,23 +252,30 @@ h1 {
 .utility-container .headphone-back {
   position: absolute;
   width: 70px;
-  height: 30px;
-  left: 5px;
-  bottom: 10px;
+  height: 22px;
+  left: 7px;
+  bottom: 12px;
   border-radius: 25px;
-  background-color: var(--grey);
+  background-color: rgba(3, 10, 3, 0.1);
 }
 
 .onoff {
-  height: 40px;
-  width: 40px;
+  height: 34px;
+  width: 34px;
   position: absolute;
   right: 20px;
-  bottom: 5px;
+  bottom: -2px;
   border-radius: 50%;
-  background-color: white;
-  border: 2px solid white;
-  border-style: outset;
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: 2px solid rgba(214, 216, 213, 0.9);
+  box-shadow: 0 1px 5px 2px rgba(255, 255, 255, 0.8);
+}
+
+.power {
+  position: relative;
+  z-index: 2;
+  top: 3px;
+  fill: var(--black-a2);
 }
 
 .speakers {
@@ -216,7 +326,7 @@ h1 {
 }
 
 .utility-container-top .speaker {
-  transform: scale(1.15);
+  transform: scale(1.12);
   background-color: var(--blue);
   background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
   filter: brightness(115%) opacity(0.5) blur(6px) saturate(1.5);
@@ -286,7 +396,7 @@ h1 {
 .speaker-tabs span:nth-of-type(1) {
   transform: rotate(-90deg);
   top: calc(50% - 3px);
-  left: -3px;
+  left: -2px;
 }
 
 .speaker-tabs span:nth-of-type(2) {
@@ -304,7 +414,7 @@ h1 {
 .speaker-tabs span:nth-of-type(4) {
   transform: rotate(90deg);
   top: calc(50% - 3px);
-  right: -3px;
+  right: -2px;
 }
 
 .speaker-tabs span:nth-of-type(5) {
@@ -327,12 +437,15 @@ h1 {
   top: 0px;
   left: 0px;
   background-color: transparent;
-  box-shadow: none;
+  box-shadow:
+    0 0 2px 1px var(--blue),
+    0 0 5px 2px rgba(255, 255, 255, 0.5),
+    0 0 3px 2px rgba(255, 255, 255, 0.8);
   background-image: none;
   filter: none;
   border: 0;
   outline: 0;
-  transform: scale(1.15);
+  transform: scale(1.12);
   box-sizing: border-box;
 }
 
@@ -523,20 +636,79 @@ h1 {
   width: 66px;
   height: 24px;
   left: 9px;
-  bottom: 7px;
+  bottom: -1px;
   border-radius: 25px;
-  /* background: radial-gradient(ellipse at center, var(--grey-a) 60%, var(--black-a2) 100%); */
   backdrop-filter: brightness(110%) opacity(0.7);
   box-shadow:
     inset 1px 2px 5px 1px rgba(255, 255, 255, 0.4),
-    inset 1px 1px 4px 1px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 5px 1px rgba(0, 0, 0, 0.2),
     inset 0 0 10px 8px var(--grey-a);
   outline: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.headphone-icon {
+  fill: var(--white);
+  position: absolute;
+  bottom: -16px;
+  left: 26px;
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
+}
+
+.headphone-jack {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px) brightness(90%);
+  box-shadow: 0px -1px 1px 1px var(--light);
+  position: relative;
+  z-index: 1;
+}
+
+.headphone-jack::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--grey);
+  background-image: linear-gradient(
+    90deg,
+    rgba(152, 155, 156, 0.1) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(152, 155, 156, 0.1) 100%
+  );
+  border-radius: 50%;
+}
+
+.headphone-jack::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #837750;
+  background-image: linear-gradient(90deg, #837750 0%, rgba(153, 137, 59, 0.8) 50%, #837750 100%);
+  border-radius: 50%;
+  z-index: 3;
+  filter: blur(1px) brightness(110%);
 }
 
 .screen {
   aspect-ratio: 4 / 3;
-  width: 78%;
+  width: 76%;
   background-color: var(--black);
   border-radius: 2rem;
   margin: auto;
@@ -545,5 +717,36 @@ h1 {
   transform: translateX(-50%);
   position: absolute;
   corner-shape: squircle;
+  z-index: 7;
+  outline: 4px inset rgba(255, 255, 255, 0.7);
+}
+
+.screen-border {
+  display: block;
+  position: absolute;
+  background-color: white;
+  margin: auto;
+  top: 8.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 79%;
+  border-radius: 2.6rem;
+  corner-shape: squircle;
   z-index: 6;
+  aspect-ratio: 4 / 3.04;
+  background-image: linear-gradient(
+    0deg,
+    transparent 10%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 90%
+  );
+  box-shadow:
+    0 1px 8px 2px rgba(255, 255, 255, 0.5) inset,
+    7px 3px 10px 3px rgba(3, 3, 3, 0.2) inset,
+    -7px -3px 10px 1px rgba(3, 3, 3, 0.2) inset,
+    1px 1px 1px 1px var(--light2),
+    0px -1px 1px 0px var(--grey-a);
+  outline: 1px outset rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(1px);
+  opacity: 0.9;
 }
