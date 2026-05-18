@@ -1,3 +1,4 @@
+import './styles/keyframes.css'
 import './App.css'
 import Headphones from './icons/Headphones'
 import Power from './icons/Power'
@@ -5,18 +6,27 @@ import Power from './icons/Power'
 function App() {
   return (
     <main>
+      <input type='checkbox' id='on-off' defaultChecked />
+
       <div className='computer'>
         <div className='web-cam' />
+        <h1 className='logo'>bSturd</h1>
         <div className='screen-frame' />
         <div className='screen-outer-container'>
           <div className='screen-border' />
           <div className='screen'>
-            <div className='tube-arc' />
-            <div className='tube-arc' />
+            <div className='tube-arc'></div>
+            <div className='tube-arc'></div>
+            <div className='screen-interface'>
+              <div className='text-container'>~ hi...</div>
+            </div>
           </div>
         </div>
 
         <div className='utility-parent'>
+          <label className='onoff' htmlFor='on-off'>
+            <Power className='power' />
+          </label>
           <div className='utility-container'>
             <div className='utility-tab'></div>
             <div className='utility-tab'></div>
@@ -55,9 +65,6 @@ function App() {
                 <div className='headphone-jack'></div>
                 <Headphones className='headphone-icon' />
               </div>
-              <button className='onoff' type='button'>
-                <Power className='power' />
-              </button>
             </div>
 
             <div className='speakers speakers--bottom'>

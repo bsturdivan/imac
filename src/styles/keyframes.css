@@ -1,0 +1,76 @@
+@keyframes on {
+  0% {
+    transform: scaleY(0) scaleX(0);
+  }
+
+  30% {
+    transform: scaleY(0.01) scaleX(0.02);
+    filter: invert(1);
+  }
+
+  40% {
+    transform: scaleY(0.01) scaleX(1);
+  }
+
+  49% {
+    transform: scaleY(0.7) scaleX(0.7);
+  }
+
+  70% {
+    filter: invert(0);
+  }
+
+  50%,
+  69%,
+  71%,
+  79%,
+  81%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes off {
+  5% {
+    transform: scaleY(0.01) scaleX(1);
+    filter: invert(0.9);
+  }
+
+  7% {
+    filter: invert(0.3);
+  }
+
+  8% {
+    filter: invert(0.7);
+  }
+
+  15% {
+    transform: scaleY(0.01) scaleX(0.75);
+  }
+
+  24% {
+    transform: scaleY(0.01) scaleX(0.01);
+  }
+
+  25%,
+  69%,
+  71%,
+  79%,
+  81%,
+  100% {
+    transform: scaleY(0) scaleX(0);
+    filter: invert(0);
+  }
+}
+
+@keyframes pixelWobble {
+  100% {
+    transform: translate3d(10px, -20px, 0);
+  }
+}
+
+@keyframes pixelSlideUp {
+  100% {
+    transform: translate3d(0, -95%, 0);
+  }
+}

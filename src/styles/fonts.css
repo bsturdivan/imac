@@ -24,3 +24,10 @@
   font-weight: 400;
   font-style: italic;
 }
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('../assets/fonts/AppleGaramond-Light.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}

@@ -1,5 +1,5 @@
 :root {
-  --text: #f3f4f6;
+  --text: rgb(243, 244, 246);
   --white: rgb(251, 250, 247);
   --light: rgba(250, 246, 235, 0.8);
   --light2: rgba(250, 246, 235, 0.6);
@@ -13,6 +13,7 @@
   --blue-a2: rgba(0, 149, 182, 0.7);
 
   --sans: Primitiv, sans-serif;
+  --serif: Garamond;
   --mono: Primitiv, Consolas, monospace;
 
   font: 62.5%/140% var(--sans);
@@ -22,9 +23,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
+  /* @media (max-width: 1024px) {
     font-size: 16px;
-  }
+  } */
 }
 
 button {

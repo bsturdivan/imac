@@ -1,3 +1,7 @@
+[type='checkbox'] {
+  display: none;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -5,6 +9,29 @@ main {
   height: 100dvh;
   padding: 1% 0;
   box-sizing: border-box;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 3.2rem;
+  color: var(--black);
+  position: absolute;
+  top: 76%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  margin: 0;
+  text-shadow: 2px 1px 1px var(--text);
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+}
+
+.logo::after {
+  content: 'bSturd';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  text-shadow: 2.5px 1.5px 1px var(--grey);
 }
 
 .flare {
@@ -76,7 +103,7 @@ main {
   background: radial-gradient(
     ellipse at center,
     var(--light) 10%,
-    rgba(255, 255, 255, 0.6) 40%,
+    var(--light2) 40%,
     transparent 75%
   );
   filter: opacity(75%) blur(1px);
@@ -213,7 +240,8 @@ main {
     var(--light) 60%,
     rgba(214, 216, 213, 0.5) 80%
   );
-  backdrop-filter: opacity(0.6) brightness(80%);
+  backdrop-filter: opacity(0.4) brightness(80%);
+  z-index: 2;
 }
 
 .utility-parent {
@@ -287,19 +315,29 @@ main {
   height: 34px;
   width: 34px;
   position: absolute;
-  right: 20px;
-  bottom: -2px;
+  bottom: calc(50% - 13px);
+  right: 24%;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.3);
   outline: 2px solid rgba(214, 216, 213, 0.9);
   box-shadow: 0 1px 5px 2px rgba(255, 255, 255, 0.8);
+  display: flex;
+  cursor: pointer;
+  transition: outline-color 300ms ease-out;
+  z-index: 10;
+}
+
+.onoff:hover {
+  outline-color: var(--blue-a);
 }
 
 .power {
   position: relative;
   z-index: 2;
-  top: 3px;
+  top: 1px;
   fill: var(--black-a2);
+  display: block;
+  margin: auto;
 }
 
 .speakers {
@@ -740,6 +778,7 @@ main {
   position: absolute;
   display: flex;
   z-index: 7;
+  transform-style: preserve-3d;
 }
 
 .screen {
@@ -767,6 +806,7 @@ main {
   z-index: 2;
   overflow: hidden;
   backdrop-filter: blur(7px);
+  transform-style: preserve-3d;
 }
 
 .tube-arc {
@@ -783,6 +823,7 @@ main {
   );
   height: 107%;
   width: 200%;
+  z-index: 3;
 }
 
 .tube-arc:nth-of-type(2) {
@@ -794,21 +835,8 @@ main {
   height: 260%;
   width: 105%;
   filter: blur(2px);
+  z-index: 3;
 }
-
-/* .screen::before {
-  content: '';
-  position: relative;
-  top: 5%;
-  left: 5%;
-  z-index: 2;
-  background-color: var(--black);
-  width: 92%;
-  height: 90%;
-  display: block;
-  border-radius: 1.4rem;
-  corner-shape: squircle;
-} */
 
 .screen-border {
   width: 100%;
@@ -826,4 +854,110 @@ main {
   backdrop-filter: blur(2px) brightness(140%) opacity(0.3);
   position: relative;
   z-index: 1;
+}
+
+.text-container {
+  box-sizing: border-box;
+  color: var(--text);
+  font-size: 1.6rem;
+  padding: 3%;
+  background-color: transparent;
+  /* width: min-content; */
+  height: 100%;
+  border: none;
+  position: relative;
+  z-index: -1;
+}
+
+.text-container::after {
+  content: '';
+  display: block;
+  background-color: var(--text);
+  width: 0.8ch;
+  height: 1em;
+  top: 1em;
+  left: 5.5ch;
+  position: absolute;
+  z-index: 10;
+}
+
+.screen-interface {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  width: 97%;
+  aspect-ratio: 4 / 3;
+  z-index: 3;
+  transform-style: preserve-3d;
+}
+
+.screen-interface::before {
+  content: '';
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  background-image: repeating-linear-gradient(var(--black-a) 0 1.5px, transparent 1.5px 3px);
+  background-size: 100% 12px;
+  animation: pixelWobble 4s infinite linear;
+  animation-play-state: paused;
+}
+
+.screen-interface::after {
+  content: '';
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  background-image: repeating-linear-gradient(transparent 0 1.5px, var(--black-a2) 1.5px 3px);
+  background-size: 100% 2px;
+  animation: pixelSlideUp 10s infinite linear;
+  animation-play-state: paused;
+}
+
+body:has(#on-off:checked) {
+  .power {
+    fill: var(--blue);
+  }
+
+  .onoff {
+    box-shadow: 0 1px 12px 1px var(--blue-a2);
+  }
+
+  .screen-interface {
+    animation: on 2s ease-in-out forwards;
+  }
+
+  .screen-interface::after {
+    animation-play-state: running;
+  }
+
+  .screen-interface::after {
+    animation-play-state: running;
+  }
+
+  .text-container::after {
+    animation-play-state: running;
+  }
+}
+
+body:has(#on-off:not(:checked)) {
+  .screen-interface {
+    animation: off 2s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .screen-interface::after {
+    animation-play-state: paused;
+  }
+
+  .screen-interface::after {
+    animation-play-state: paused;
+  }
+
+  .text-container::after {
+    animation-play-state: paused;
+  }
 }
