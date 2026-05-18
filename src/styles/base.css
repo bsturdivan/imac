@@ -1,6 +1,6 @@
 :root {
   --text: #f3f4f6;
-  --white: #fbfaf7;
+  --white: rgb(251, 250, 247);
   --light: rgba(250, 246, 235, 0.8);
   --light2: rgba(250, 246, 235, 0.6);
   --black: rgb(3, 10, 3);

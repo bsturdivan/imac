@@ -8,8 +8,13 @@ function App() {
       <div className='computer'>
         <div className='web-cam' />
         <div className='screen-frame' />
-        <div className='screen-border' />
-        <div className='screen' />
+        <div className='screen-outer-container'>
+          <div className='screen-border' />
+          <div className='screen'>
+            <div className='tube-arc' />
+            <div className='tube-arc' />
+          </div>
+        </div>
 
         <div className='utility-parent'>
           <div className='utility-container'>
