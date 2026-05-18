@@ -18,7 +18,7 @@ function App() {
             <div className='tube-arc'></div>
             <div className='tube-arc'></div>
             <div className='screen-interface'>
-              <div className='text-container'>~ hi...</div>
+              <div className='text-container'>~ : This is Not AI 📣</div>
             </div>
           </div>
         </div>
