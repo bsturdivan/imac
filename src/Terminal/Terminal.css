@@ -1,0 +1,79 @@
+.terminal {
+  color: var(--text);
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.4em;
+  padding: 3%;
+  height: auto;
+  position: relative;
+  z-index: -1;
+  box-sizing: border-box;
+}
+
+.terminal-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.4em;
+}
+
+.terminal-line {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.line-prefix {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.line-prefix span {
+  display: block;
+}
+
+.line-user {
+  color: #7eda28;
+}
+
+.line-prompt-prefix {
+  width: 3ch;
+}
+
+.text-container {
+  color: inherit;
+  font-size: inherit;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  caret-color: var(--text);
+  caret-shape: block;
+  outline: none;
+  resize: none;
+  white-space: pre-wrap;
+  width: stretch;
+  line-height: 1.4em;
+}
+
+.terminal-output {
+  height: fit-content;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1.4em;
+  border: none;
+  white-space: pre;
+}

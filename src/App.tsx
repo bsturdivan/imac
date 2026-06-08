@@ -2,11 +2,37 @@ import './styles/keyframes.css'
 import './App.css'
 import Headphones from './icons/Headphones'
 import Power from './icons/Power'
+import Terminal from './Terminal'
+import { useEffect, useRef, useState } from 'react'
 
 function App() {
+  const onoffRef = useRef<HTMLInputElement>(null)
+  const [renderTerminal, setRenderTerminal] = useState<boolean>(false)
+  const poweredStateLocalStorage = localStorage.getItem('poweredOn') || 'true'
+  const poweredState = JSON.parse(poweredStateLocalStorage)
+
+  const handleCheckboxChange = (event: { target: { checked: boolean } }) => {
+    const checked = event.target.checked
+    localStorage.setItem('poweredOn', checked.toString())
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setRenderTerminal(!!onoffRef.current?.checked)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [onoffRef])
+
   return (
     <main>
-      <input type='checkbox' id='on-off' defaultChecked />
+      <input
+        type='checkbox'
+        id='on-off'
+        defaultChecked={poweredState}
+        onChange={handleCheckboxChange}
+        ref={onoffRef}
+      />
 
       <div className='computer-wrapper'>
         <div className='computer'>
@@ -18,9 +44,7 @@ function App() {
             <div className='screen'>
               <div className='tube-arc'></div>
               <div className='tube-arc'></div>
-              <div className='screen-interface'>
-                <div className='text-container'>~ : This is Not AI 📣</div>
-              </div>
+              <div className='screen-interface'>{renderTerminal && <Terminal />}</div>
             </div>
           </div>
 

@@ -131,7 +131,7 @@ main {
 }
 
 .foot {
-  background-color: var(--blue);
+  background-color: var(--blue-a2);
   background-image: linear-gradient(
     90deg,
     transparent 10%,
@@ -141,7 +141,7 @@ main {
   height: 20px;
   aspect-ratio: 3 / 1;
   clip-path: polygon(3px 100%, calc(100% - 3px) 100%, 100% 0, 0 0);
-  filter: opacity(0.9) brightness(50%);
+  filter: brightness(70%);
   border-radius: 10px;
   box-shadow: inset 1px -0.5px 8px 3px var(--black-a2);
 }
@@ -379,6 +379,11 @@ main {
 
 .onoff:hover {
   outline-color: var(--blue-a);
+}
+
+.onoff:hover,
+.onoff:active {
+  animation-play-state: paused;
 }
 
 .power {
@@ -834,17 +839,18 @@ main {
 .screen {
   width: 96%;
   aspect-ratio: 4 / 3;
-  background:
+  background-color: var(--black-a);
+  background-image:
     conic-gradient(from -107deg at -1% 78%, var(--light) 3%, var(--grey) 20%, var(--black-a2) 100%),
     radial-gradient(
       ellipse closest-corner at center,
-      var(--light2) 21%,
-      var(--black-a) 45%,
-      var(--black-a2) 70%
+      rgba(214, 216, 213, 0.6) 12%,
+      rgba(214, 216, 213, 0.4) 31%,
+      var(--black-a2) 80%
     );
   box-shadow:
-    0px 0 40px 33px var(--black-a) inset,
-    0px 0 40px 40px var(--light) inset;
+    0px 0 60px 43px var(--black-a) inset,
+    0px 0 60px 60px var(--light) inset;
   border-radius: 1.4rem;
   corner-shape: squircle;
   outline: 2px inset rgba(255, 255, 255, 0.7);
@@ -855,7 +861,6 @@ main {
   transform: translate(-50%, -50%);
   z-index: 2;
   overflow: hidden;
-  backdrop-filter: blur(7px);
   transform-style: preserve-3d;
 }
 
@@ -906,31 +911,6 @@ main {
   z-index: 1;
 }
 
-.text-container {
-  box-sizing: border-box;
-  color: var(--text);
-  font-size: 1.6rem;
-  padding: 3%;
-  background-color: transparent;
-  /* width: min-content; */
-  height: 100%;
-  border: none;
-  position: relative;
-  z-index: -1;
-}
-
-.text-container::after {
-  content: '';
-  display: block;
-  background-color: var(--text);
-  width: 0.8ch;
-  height: 1em;
-  top: 1.1em;
-  left: 15.7ch;
-  position: absolute;
-  z-index: 10;
-}
-
 .screen-interface {
   position: absolute;
   top: 8px;
@@ -939,6 +919,9 @@ main {
   aspect-ratio: 4 / 3;
   z-index: 3;
   transform-style: preserve-3d;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 .screen-interface::before {
@@ -948,10 +931,11 @@ main {
   left: -5%;
   width: 110%;
   height: 110%;
-  background-image: repeating-linear-gradient(var(--black-a) 0 1.5px, transparent 1.5px 3px);
+  background-image: repeating-linear-gradient(var(--black-a2) 0 1.5px, transparent 1.5px 3px);
   background-size: 100% 18px;
   animation: pixelWobble 4s infinite linear;
   animation-play-state: paused;
+  opacity: 0.8;
 }
 
 .screen-interface::after {
@@ -963,8 +947,9 @@ main {
   height: 110%;
   background-image: repeating-linear-gradient(transparent 0 1.5px, var(--black-a2) 1.5px 3px);
   background-size: 100% 3px;
-  animation: pixelSlideUp 10s infinite linear;
+  animation: pixelSlideUp 12s infinite linear;
   animation-play-state: paused;
+  opacity: 0.7;
 }
 
 body:has(#on-off:checked) {
@@ -973,7 +958,8 @@ body:has(#on-off:checked) {
   }
 
   .onoff {
-    box-shadow: 0 1px 12px 1px var(--blue-a2);
+    box-shadow: 0 1px 9px 1px var(--blue-a);
+    animation: none;
   }
 
   .screen-interface {
@@ -987,10 +973,6 @@ body:has(#on-off:checked) {
   .screen-interface::after {
     animation-play-state: running;
   }
-
-  .text-container::after {
-    animation-play-state: running;
-  }
 }
 
 body:has(#on-off:not(:checked)) {
@@ -999,15 +981,15 @@ body:has(#on-off:not(:checked)) {
     animation-fill-mode: forwards;
   }
 
-  .screen-interface::after {
-    animation-play-state: paused;
+  .onoff {
+    animation: powerButton 2s ease-in-out infinite alternate;
   }
 
   .screen-interface::after {
     animation-play-state: paused;
   }
 
-  .text-container::after {
+  .screen-interface::after {
     animation-play-state: paused;
   }
 }
