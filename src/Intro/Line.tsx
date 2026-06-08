@@ -27,7 +27,9 @@ function Line({
 
   useEffect(() => {
     if (currentIndex >= text.length + BUFFER) {
+      console.log('currentIndex >= text.length + BUFFER', text[currentIndex])
       if (!doneRef.current && index + 1 !== allText.length) {
+        console.log('doneRef.current = true', text[currentIndex])
         doneRef.current = true
         setRenderedLines((prevText: string[]) => [...prevText, allText[index + 1]])
       }
@@ -35,6 +37,7 @@ function Line({
     }
 
     const delay = currentIndex === 0 ? 666 : randomNumber(70, 110)
+    console.log('TIMEOUT', currentIndex, text[currentIndex])
 
     const timeout = setTimeout(() => setCurrentIndex((prev) => prev + 1), delay)
 
