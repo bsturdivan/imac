@@ -21,7 +21,6 @@ function Intro({ setIntroComplete }: { setIntroComplete: (value: boolean) => voi
         renderedLines.map((item, index) => (
           <Line
             text={item}
-            lastItem={index + 1 === history.length}
             index={index}
             key={item}
             allText={intro}

@@ -8,14 +8,12 @@ function randomNumber(min: number, max: number) {
 function Line({
   text = '',
   index,
-  lastItem,
   setRenderedLines,
   onAbortIntro,
   allText,
 }: {
   text: string
   index: number
-  lastItem: boolean
   setRenderedLines: React.Dispatch<React.SetStateAction<string[]>>
   onAbortIntro: () => void
   allText: string[]
@@ -40,9 +38,7 @@ function Line({
 
   const lineOfText = text.slice(0, currentIndex)
 
-  return (
-    <Input name='' command={lineOfText} output='' lastItem={lastItem} onSubmit={onAbortIntro} />
-  )
+  return <Input name='' command={lineOfText} output='' lastItem={false} onSubmit={onAbortIntro} />
 }
 
 export default Line
