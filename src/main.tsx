@@ -7,6 +7,8 @@ import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <meta name='description' content='My name is Brian Sturdivan and this is not an iMac G3.' />
+    <title>Brian Sturdivan | Good Guy.</title>
     <App />
   </StrictMode>,
 )
