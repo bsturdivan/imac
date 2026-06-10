@@ -10,12 +10,14 @@ function Line({
   index,
   setRenderedLines,
   onAbortIntro,
+  setIntroComplete,
   allText,
 }: {
   text: string
   index: number
   setRenderedLines: React.Dispatch<React.SetStateAction<string[]>>
   onAbortIntro: () => void
+  setIntroComplete: (value: boolean) => void
   allText: string[]
 }) {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -23,9 +25,13 @@ function Line({
 
   useEffect(() => {
     if (currentIndex >= text.length) {
-      if (!doneRef.current && index + 1 !== allText.length) {
-        doneRef.current = true
-        setRenderedLines((prevText: string[]) => [...prevText, allText[index + 1]])
+      if (!doneRef.current) {
+        if (index + 1 !== allText.length) {
+          doneRef.current = true
+          setRenderedLines((prevText: string[]) => [...prevText, allText[index + 1]])
+        } else {
+          setIntroComplete(true)
+        }
       }
       return
     }
@@ -34,11 +40,11 @@ function Line({
     const timeout = setTimeout(() => setCurrentIndex((prev) => prev + 1), delay)
 
     return () => clearTimeout(timeout)
-  }, [currentIndex, text, index, setRenderedLines, allText])
+  }, [currentIndex, text, index, setRenderedLines, allText, setIntroComplete])
 
   const lineOfText = text.slice(0, currentIndex)
 
-  return <Input name='' command={lineOfText} output='' lastItem={false} onSubmit={onAbortIntro} />
+  return <Input name='' command={lineOfText} output='' lastItem={false} onAbort={onAbortIntro} />
 }
 
 export default Line

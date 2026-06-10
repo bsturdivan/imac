@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+
 function Input({
   name,
   onSubmit,
@@ -5,15 +7,30 @@ function Input({
   name: string
   onSubmit?: (event: React.KeyboardEvent) => void
 }) {
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    const terminalLine = inputRef.current
+
+    terminalLine?.focus()
+    window.addEventListener('focus', () => terminalLine?.focus())
+
+    return () => {
+      window.removeEventListener('focus', () => terminalLine?.focus())
+    }
+  }, [])
+
   return (
     <input
       type='text'
       className='text-container'
       name={name}
-      autoFocus
+      autoFocus={true}
+      tabIndex={0}
       autoComplete='off'
       autoCorrect='off'
       onKeyDown={onSubmit}
+      ref={inputRef}
     />
   )
 }
@@ -27,14 +44,30 @@ function TerminalGroup({
   command,
   output,
   onSubmit,
+  onAbort,
   lastItem,
 }: {
   name: string
   command: string | null
   output: string | null
   onSubmit?: (event: React.KeyboardEvent) => void
+  onAbort?: (val: boolean) => void
   lastItem: boolean
 }) {
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onAbort?.(true)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscape)
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape)
+    }
+  }, [onAbort])
+
   return (
     <fieldset className='terminal-group'>
       <div className='terminal-line'>

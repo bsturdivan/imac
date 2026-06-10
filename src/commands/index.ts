@@ -53,7 +53,7 @@ export const intro = [
   'My name is Brian Sturdivan and this is my art project.',
   'This iMac G3 was made with basic HTML and CSS, no images or SVG effects were used.',
   'No AI was used in the making of this art; it was made purely for the joy of the challenge.',
-  '',
+  '  ',
   'You are in a simulated unix shell. Type `help` to get started.',
 ]
 
