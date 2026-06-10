@@ -39,7 +39,7 @@ function TerminalGroup({
     <fieldset className='terminal-group'>
       <div className='terminal-line'>
         <div className='line-prefix'>
-          <span className='line-user'>b@sturd&nbsp;</span>
+          <span className='line-user'>@bsturd&nbsp;</span>
           <span className='line-prompt-prefix'>~ %&nbsp;</span>
         </div>
         {!lastItem && <Command text={command} />}
